@@ -10,26 +10,10 @@ using System.Data;
 
 namespace day2.Controller
 {
-    public class Pepper
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-
-        public Pepper(int id, string name)
-        {
-            Id = id;
-            Name = name;
-        }
-    }
     public class PepperController : ApiController
     {
         static string con = ConfigurationManager.ConnectionStrings["sqlServer"].ConnectionString;
         static SqlConnection conn = new SqlConnection(con);
-
-        public static List<Pepper> peppers = new List<Pepper>()
-        {
-            new Pepper(5, "california")
-        };
                 
         [HttpPost]
         public HttpResponseMessage SavePepperOrShop(int id, string name, int pepperOrShop)
